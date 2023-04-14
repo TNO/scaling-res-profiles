@@ -20,12 +20,15 @@ $$
 \displaystyle {\min_{x} {\left(\sum_{h}P_{h}^{x} - FLH\right)}^{2}}
 \end{align}
 $$
+
 $s.t.$
+
 $$
 \begin{align}
 x \geq 0
 \end{align}
 $$
+
 Where:
 
 $x$: decision variable to scale the hourly values of the profile
