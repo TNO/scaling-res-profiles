@@ -1,0 +1,20 @@
+[inputs]
+# input directory with the files
+dir = "inputs"
+
+[inputs.res_profile]
+# input files for data
+file_name         = "ninja_pv_country_NL_merra-2_corrected.csv"
+header_row        = 3
+time_column_key   = "time"
+data_column_key   = "national"
+
+[inputs.target_values]
+file_name         = "target_capacity_factors_pv.csv"
+header_row        = 1
+year_column_key   = "year"
+
+[outputs]
+dir = "outputs"
+first_hour_to_plot = 4380
+last_hour_to_plot = 4548
