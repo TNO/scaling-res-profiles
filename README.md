@@ -15,17 +15,17 @@ The input files were generated with the [renewables ninja](https://www.renewable
 The output files include the scaled profiles, a summary file, and a summary plot.
 ## Optimization model
 
-$
+$$
 \begin{align}
 \displaystyle {\min_{x} {\left(\sum_{h}P_{h}^{x} - FLH\right)}^{2}}
 \end{align}
-$
+$$
 $s.t.$
-$
+$$
 \begin{align}
 x \geq 0
 \end{align}
-$
+$$
 Where:
 
 $x$: decision variable to scale the hourly values of the profile
