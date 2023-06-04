@@ -1,0 +1,29 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Nonlinear programming model to scale renewable energy
+  sources profiles
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - orcid: 'https://orcid.org/0000-0002-6372-6197'
+    given-names: German
+    family-names: Morales-Espana
+    email: german.morales@tno.nl
+    affiliation: TNO
+  - given-names: Diego A.
+    orcid: 'https://orcid.org/0000-0002-3278-9283'
+    affiliation: TNO
+    email: diego.tejadaarango@tno.nl
+    family-names: Tejada-Arango
+repository-code: 'https://github.com/datejada/scaling-res-profiles'
+keywords:
+  - renewable energy sources
+  - scaling profiles
+  - nonlinear programming
+license: Apache-2.0
+commit: 9e0eefb2642f346dc6f074afcb3db8606032b677
