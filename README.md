@@ -1,5 +1,5 @@
-# NLP model to scale RES profiles
-This repository has an NLP optimization model to scale renewable energy sources (RES) profiles from historical data to future target capacity factor.
+# Nonlinear programming (NLP) model to scale Renewable Energy Sources (RES) profiles
+This repository has an NLP optimization model to scale RES profiles from historical data to future target capacity factor.
 
 ## Files description
 + **[config.toml](config.toml)**: configuration file with main parameters to run the model
@@ -10,7 +10,7 @@ This repository has an NLP optimization model to scale renewable energy sources 
 + **[RES-profile-scaling-main.jl](RES-profile-scaling-main.jl)**: main file to run the model
 
 ## Inputs
-The input files were generated with the [renewables ninja](https://www.renewables.ninja/) tool.
+The input files were generated with the [renewables ninja](https://www.renewables.ninja/) tool. However, any hourly profile following the data format from the renewable ninja is allowed.
 ## Outputs
 The output files include the scaled profiles, a summary file, and a summary plot.
 ## Optimization model
@@ -37,5 +37,5 @@ $P_{h}$: profile value at hour $h$
 
 $FLH$: target full load hours
 
-The objective function $(1)$ minimizes the squared error to the target full load hours, while $(2)$ ensures the new coefficient is positive.
+The objective function minimizes the squared error to the target full load hours, while constraint ensures the new coefficient is positive.
 
