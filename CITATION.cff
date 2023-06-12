@@ -20,7 +20,7 @@ authors:
     affiliation: TNO
     email: diego.tejadaarango@tno.nl
     family-names: Tejada-Arango
-repository-code: 'https://github.com/datejada/scaling-res-profiles'
+repository-code: 'https://github.com/TNO/scaling-res-profiles'
 keywords:
   - renewable energy sources
   - scaling profiles
