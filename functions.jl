@@ -246,8 +246,9 @@ function plot_profiles(df::DataFrame,
                        outputs::Dict{String,Any})
     
     # hours of the year to plot
-    first_hour = outputs[OUTPUT_FIRST_HOUR_PLOT]
-    last_hour  = outputs[OUTPUT_LAST_HOUR_PLOT]
+    first_hour   = outputs[OUTPUT_FIRST_HOUR_PLOT]
+    last_hour    = outputs[OUTPUT_LAST_HOUR_PLOT]
+    display_plot = outputs[OUTPUT_DISPLAY_PLOT]
 
     # information from the inputs                      
     dir = outputs[OUTPUT_DIR_KEY]
@@ -299,8 +300,62 @@ function plot_profiles(df::DataFrame,
              )
         
         # display and save
-        display(p)           
+        if display_plot
+            display(p)
+        end
         savefig(p,path)
 
     end
+end
+
+
+"""
+    scale_list_of_profile_files(inputs,outputs)
+
+Function to scale a list of profile files.
+"""
+function scale_list_of_profile_files(inputs,outputs)
+    
+    name = inputs[RES_PROFILE_CONFIG_KEY][NAME]
+    
+    # Wrangle the data
+    print_message("Wrangling the input data for " * name)
+
+    df = input_data_wrangle(inputs)
+
+    df_targets, historical_years, future_years = target_data_wrangle(inputs)
+
+    print_message("Elapsed time wrangling data", level=2)
+
+    # Loop over the historical years and scale the profile for each future year
+    print_message("Scaling the profiles for " * name)
+
+    df_scaled, df_summary = scale_profiles(df, df_targets, historical_years, future_years, inputs)
+
+    print_message("Elapsed time scaling profiles", level=2)
+
+    # Save the data
+    print_message("Saving the data for " * name)
+
+    dir = outputs[OUTPUT_DIR_KEY]
+    name_scaled_file  = "scaled_"*inputs[RES_PROFILE_CONFIG_KEY][DATA_KEY]*"_"*inputs[RES_PROFILE_CONFIG_KEY][NAME]
+    name_summary_file = "summary_"*inputs[RES_PROFILE_CONFIG_KEY][DATA_KEY]*"_"*inputs[RES_PROFILE_CONFIG_KEY][NAME]
+
+    # Save the scaled data
+    path = append_dir(dir, name_scaled_file)
+    CSV.write(path, df_scaled)
+
+    # Save the summary data
+    path = append_dir(dir, name_summary_file)
+    CSV.write(path, df_summary)
+
+    print_message("Elapsed time saving data", level=2)
+
+    # Plot the data
+    print_message("Plotting the data for " * name)
+
+    # Plot the scaled data
+    plot_profiles(df_scaled, historical_years, future_years, inputs, outputs)
+
+    print_message("Elapsed time plotting data", level=2)
 end
