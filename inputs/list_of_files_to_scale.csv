@@ -1,0 +1,4 @@
+file_name,header_row,time_column_key,data_column_key,min_target_cp,max_target_cp
+ninja_pv_country_NL_merra-2_corrected.csv,3,time,national,0.10,0.13
+ninja_wind_country_NL_current-merra-2_corrected.csv,3,time,offshore,0.43,0.60
+ninja_wind_country_NL_current-merra-2_corrected.csv,3,time,onshore,0.32,0.58
