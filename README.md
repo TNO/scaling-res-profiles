@@ -1,6 +1,8 @@
 # Nonlinear programming (NLP) model to scale Renewable Energy Sources (RES) profiles
 This repository has an NLP optimization model to scale RES profiles from historical data to future target capacity factor.
 
+An improved version of this methodology is available as a Julia package in the following link: [https://github.com/TulipaEnergy/TulipaProfileFitting.jl](https://github.com/TulipaEnergy/TulipaProfileFitting.jl)
+
 ## Files description
 + **[config.toml](config.toml)**: configuration file with main parameters to run the model
 + **[constants.jl](constants.jl)**: constants values in the code
